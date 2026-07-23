@@ -28,3 +28,9 @@ jobs:
 
       - name: Prikazi sadrzaj pre-deploy-check.sh
         run: cat pre-deploy-check.sh
+      - name: Test secreta
+        env:
+          MOJ_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          echo "Duzina secreta:"
+          echo -n "$MOJ_SECRET" | wc -c
