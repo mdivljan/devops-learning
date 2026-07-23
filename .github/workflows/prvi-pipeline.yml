@@ -6,11 +6,14 @@ jobs:
   pozdrav:
     runs-on: ubuntu-latest
     steps:
+      - name: Preuzmi kod iz repoa
+        uses: actions/checkout@v4
+
       - name: Ispisi pozdrav
         run: echo "Zdravo iz GitHub Actions!"
 
-      - name: Pokazi datum
-        run: date
+      - name: Listaj fajlove iz repoa
+        run: ls -la
 
-      - name: Pokazi radni direktorijum
-        run: pwd
+      - name: Prikazi sadrzaj pre-deploy-check.sh
+        run: cat pre-deploy-check.sh
