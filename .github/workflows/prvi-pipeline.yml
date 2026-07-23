@@ -1,6 +1,13 @@
 name: Prvi CI pipeline
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   pozdrav:
@@ -9,8 +16,12 @@ jobs:
       - name: Preuzmi kod iz repoa
         uses: actions/checkout@v4
 
-      - name: Ispisi pozdrav
-        run: echo "Zdravo iz GitHub Actions!"
+      - name: Pokazi info o eventu
+        run: |
+          echo "Pokrenuo: ${{ github.actor }}"
+          echo "Grana: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Event tip: ${{ github.event_name }}"
 
       - name: Listaj fajlove iz repoa
         run: ls -la
