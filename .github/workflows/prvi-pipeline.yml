@@ -1,0 +1,16 @@
+name: Prvi CI pipeline
+
+on: [push]
+
+jobs:
+  pozdrav:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ispisi pozdrav
+        run: echo "Zdravo iz GitHub Actions!"
+
+      - name: Pokazi datum
+        run: date
+
+      - name: Pokazi radni direktorijum
+        run: pwd
